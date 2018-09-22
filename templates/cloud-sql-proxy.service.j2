@@ -1,0 +1,25 @@
+# {{ ansible_managed }}
+
+[Unit]
+Description=Google Cloud Compute Engine SQL Proxy
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/usr/local/bin
+ExecStart={{ cloud_sql_proxy_install_path }} \
+  -dir={{ cloud_sql_proxy_socket_dir }} \
+{%if cloud_sql_proxy_tcp_port %}
+  -instances={{ cloud_sql_proxy_connection_name }}=tcp:{{ cloud_sql_proxy_tcp_port }}
+{% else %}
+  -instances={{ cloud_sql_proxy_connection_name }}
+{% endif %}
+
+Restart=always
+StandardOutput=journal
+User=root
+RuntimeDirectory={{ cloud_sql_proxy_socket_dir | basename }}
+RuntimeDirectoryMode=0755
+
+[Install]
+WantedBy=multi-user.target

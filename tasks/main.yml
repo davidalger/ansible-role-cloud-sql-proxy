@@ -1,0 +1,22 @@
+---
+- name: Install cloud-sql-proxy
+  get_url:
+    url: "{{ cloud_sql_proxy_download_url }}"
+    dest: "{{ cloud_sql_proxy_install_path }}"
+    mode: 0755
+
+- name: Configure cloud-sql-proxy service
+  template: 
+    src: cloud-sql-proxy.service.j2
+    dest: /etc/systemd/system/cloud-sql-proxy.service
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - reload systemd configuration
+    - restart cloud-sql-proxy
+
+- name: Enable cloud-sql-proxy service
+  service:
+    name: cloud-sql-proxy.service
+    enabled: yes

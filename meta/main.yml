@@ -1,0 +1,22 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: cloud_sql_proxy
+  author: David Alger
+  description: Cloud SQL Proxy for Linux.
+  company: Cria Systems LLC
+  license: MIT
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags:
+    - googlecloud
+    - cloudsql
+    - system
+    - mysql
+    - postgressql

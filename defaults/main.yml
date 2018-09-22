@@ -1,0 +1,16 @@
+---
+# This should be the connection name for the Cloud SQL instance
+# Example: tf-project-298d32a1:us-central1:tf-master-db1
+cloud_sql_proxy_connection_name:
+
+# By default the proxy will setup a local socket; set this value to enable TCP listner
+cloud_sql_proxy_tcp_port:
+
+# Fully qualified path to RuntimeDirectory used for placing Unix sockets representing database instances
+cloud_sql_proxy_socket_dir: /var/run/cloud-sql-proxy
+
+# Where the proxy will be installed and run from
+cloud_sql_proxy_working_dir: /usr/local/bin
+cloud_sql_proxy_install_path: /usr/local/bin/cloud-sql-proxy
+
+cloud_sql_proxy_download_url: https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64

@@ -1,0 +1,6 @@
+---
+- name: reload systemd configuration
+  command: systemctl daemon-reload
+
+- name: restart cloud-sql-proxy
+  service: name=cloud-sql-proxy state=restarted
