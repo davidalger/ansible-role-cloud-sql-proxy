@@ -27,8 +27,6 @@ None.
 
 ## Example Playbook
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
     - hosts: web-servers
       vars:
         cloud_sql_proxy_connection_name: tf-project-298d32a1:us-central1:tf-master-db1
