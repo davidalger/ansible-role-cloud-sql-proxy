@@ -6,7 +6,7 @@
     mode: 0755
 
 - name: Configure cloud-sql-proxy service
-  template: 
+  template:
     src: cloud-sql-proxy.service.j2
     dest: /etc/systemd/system/cloud-sql-proxy.service
     owner: root
@@ -19,4 +19,4 @@
 - name: Enable cloud-sql-proxy service
   service:
     name: cloud-sql-proxy.service
-    enabled: yes
+    enabled: true
