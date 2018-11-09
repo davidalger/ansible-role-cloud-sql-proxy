@@ -9,6 +9,9 @@ cloud_sql_proxy_tcp_port:
 # Fully qualified path to RuntimeDirectory used for placing Unix sockets representing database instances
 cloud_sql_proxy_socket_dir: /var/run/cloud-sql-proxy
 
+# When set, the value will be passed to the service's -credential_file argument when started
+cloud_sql_proxy_credential_file:
+
 # Where the proxy will be installed and run from
 cloud_sql_proxy_working_dir: /usr/local/bin
 cloud_sql_proxy_install_path: /usr/local/bin/cloud-sql-proxy
