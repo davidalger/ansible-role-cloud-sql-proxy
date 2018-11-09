@@ -3,7 +3,7 @@
 # Example: tf-project-298d32a1:us-central1:tf-master-db1
 cloud_sql_proxy_connection_name:
 
-# By default the proxy will setup a local socket; set this value to enable TCP listner
+# By default the proxy will setup a local socket; set this value to enable TCP listner in addition to unix socket
 cloud_sql_proxy_tcp_port:
 
 # Fully qualified path to RuntimeDirectory used for placing Unix sockets representing database instances
