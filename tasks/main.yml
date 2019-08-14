@@ -19,4 +19,4 @@
 - name: Enable cloud-sql-proxy service
   service:
     name: cloud-sql-proxy.service
-    enabled: true
+    enabled: yes
