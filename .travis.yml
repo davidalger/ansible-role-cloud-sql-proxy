@@ -8,11 +8,11 @@ env:
     - ROLE_NAME: davidalger.cloud_sql_proxy
 
   matrix:
+    - MOLECULE_DISTRO: centos8
     - MOLECULE_DISTRO: centos7
-      MOLECULE_DOCKER_COMMAND: /usr/lib/systemd/systemd
 
 install:
-  - pip install molecule docker
+  - pip install molecule yamllint ansible-lint docker
 
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
