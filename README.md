@@ -1,6 +1,6 @@
 # Ansible Role: Cloud SQL Proxy
 
-[![Build Status](https://travis-ci.org/davidalger/ansible-role-cloud-sql-proxy.svg?branch=master)](https://travis-ci.org/davidalger/ansible-role-cloud-sql-proxy)
+[![Build Status](https://travis-ci.com/davidalger/ansible-role-cloud-sql-proxy.svg?branch=master)](https://travis-ci.com/davidalger/ansible-role-cloud-sql-proxy)
 
 
 Installs [Cloud SQL Proxy](https://cloud.google.com/sql/docs/mysql/sql-proxy) on RHEL / CentOS 7 complete with unit scripts to keep `cloud-sql-proxy.service` running.
