@@ -8,21 +8,26 @@ After=network.target
 Type=simple
 WorkingDirectory=/usr/local/bin
 ExecStart={{ cloud_sql_proxy_install_path }} \
-  -dir={{ cloud_sql_proxy_socket_dir }} \
-{%if cloud_sql_proxy_credential_file %}
-  -credential_file={{ cloud_sql_proxy_credential_file }} \
-{% endif %}
-{%if cloud_sql_proxy_tcp_port %}
-  -instances={{ cloud_sql_proxy_connection_name }},{{ cloud_sql_proxy_connection_name }}=tcp:{{ cloud_sql_proxy_tcp_port }}
-{% else %}
-  -instances={{ cloud_sql_proxy_connection_name }}
-{% endif %}
+{% if cloud_sql_proxy_socket_dir %}
+  --unix-socket {{ cloud_sql_proxy_socket_dir }} \
+{%  endif %}
+{% if cloud_sql_proxy_credential_file %}
+  --credentials-file {{ cloud_sql_proxy_credential_file }} \
+{%  endif %}
+{% if cloud_sql_proxy_credential_file %}
+  --address {{ cloud_sql_proxy_tcp_address }} \
+{%  endif %}
+{% for connection_name in cloud_sql_proxy_connection_names %}
+  {{ connection_name }} \
+{%  endfor %}
 
 Restart=always
 StandardOutput=journal
 User=root
+{% if cloud_sql_proxy_socket_dir %}
 RuntimeDirectory={{ cloud_sql_proxy_socket_dir | basename }}
 RuntimeDirectoryMode=0755
+{%  endif %}
 
 [Install]
 WantedBy=multi-user.target
