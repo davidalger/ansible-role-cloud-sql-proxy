@@ -1,13 +1,17 @@
 ---
-# This should be the connection name for the Cloud SQL instance
-# Example: tf-project-298d32a1:us-central1:tf-master-db1
-cloud_sql_proxy_connection_name:
+# This should be a list of Cloud SQL instance connection names
+# Example: [tf-project-298d32a1:us-central1:tf-master-db1?port=5432, tf-project-298d32a1:us-central1:tf-master-db2?port=5433]
+cloud_sql_proxy_connection_names: []
 
 # By default the proxy will setup a local socket; set this value to enable TCP listner in addition to unix socket
+# Example: 1234
 cloud_sql_proxy_tcp_port:
+# Example: 0.0.0.0
+cloud_sql_proxy_tcp_address:
 
 # Fully qualified path to RuntimeDirectory used for placing Unix sockets representing database instances
-cloud_sql_proxy_socket_dir: /var/run/cloud-sql-proxy
+# Example: /var/run/cloud-sql-proxy
+cloud_sql_proxy_socket_dir:
 
 # When set, the value will be passed to the service's -credential_file argument when started
 cloud_sql_proxy_credential_file:
@@ -16,4 +20,6 @@ cloud_sql_proxy_credential_file:
 cloud_sql_proxy_working_dir: /usr/local/bin
 cloud_sql_proxy_install_path: /usr/local/bin/cloud-sql-proxy
 
-cloud_sql_proxy_download_url: https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64
+cloud_sql_proxy_version: 2.6.1
+cloud_sql_proxy_checksum: sha256:ab9c80f6b6f64915b819103199051564f6f0ac2fc2c3f987f0d07163cc4b11c0
+cloud_sql_proxy_download_url: https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v{{ cloud_sql_proxy_version }}/cloud-sql-proxy.linux.amd64
