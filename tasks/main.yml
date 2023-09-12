@@ -4,6 +4,9 @@
     url: "{{ cloud_sql_proxy_download_url }}"
     dest: "{{ cloud_sql_proxy_install_path }}"
     mode: 0755
+    checksum: "{{ cloud_sql_proxy_checksum | default(omit) }}"
+  notify:
+    - restart cloud-sql-proxy
 
 - name: Configure cloud-sql-proxy service
   template:
